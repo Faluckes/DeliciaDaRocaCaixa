@@ -1,0 +1,14 @@
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\bin\Debug\DeliciasDaRocaCAIXA.exe.config
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\bin\Debug\DeliciasDaRocaCAIXA.exe
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\bin\Debug\DeliciasDaRocaCAIXA.pdb
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.csproj.AssemblyReference.cache
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.csproj.SuggestedBindingRedirects.cache
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.DeliciasDaRoca.resources
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.Properties.Resources.resources
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.csproj.GenerateResource.cache
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.csproj.CoreCompileInputs.cache
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.exe
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.pdb
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.Menu.resources
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.ListaProdutos.resources
+D:\Program CSharp\DeliciasDaRocaCAIXA\DeliciasDaRocaCAIXA\obj\Debug\DeliciasDaRocaCAIXA.AdicionarProdutos.resources
