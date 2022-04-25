@@ -245,10 +245,10 @@
             this.boxtipopeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxtipopeso.FormattingEnabled = true;
             this.boxtipopeso.Items.AddRange(new object[] {
-            "G",
-            "Kg",
-            "Ml",
-            "Litro"});
+            "1 G",
+            "2 Kg",
+            "3 Ml",
+            "4 Litro"});
             this.boxtipopeso.Location = new System.Drawing.Point(558, 210);
             this.boxtipopeso.Name = "boxtipopeso";
             this.boxtipopeso.Size = new System.Drawing.Size(47, 21);

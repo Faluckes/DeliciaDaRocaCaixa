@@ -59,6 +59,7 @@ namespace DeliciasDaRocaCAIXA
             txtpeso.Enabled = false;
             txtpreco.Enabled = false;
             boxtipoproduto.Enabled = false;
+            boxtipopeso.Enabled = false;
         }
 
 
@@ -85,7 +86,7 @@ namespace DeliciasDaRocaCAIXA
                             txtpreco.Text = reader["Valor"].ToString();
 
 
-                            switch (Convert.ToInt32(reader["[Tipo Produto]"]))
+                            switch (Convert.ToInt32(reader["TipoProduto"]))
                             {
                                 case 1:
                                     boxtipoproduto.Text = "1 Carne";
@@ -104,19 +105,19 @@ namespace DeliciasDaRocaCAIXA
                                     break;
 
                             }
-                            switch (Convert.ToInt32(reader["Tipo de Peso"]))
+                            switch (Convert.ToInt32(reader["TipoDePeso"]))
                             {
                                 case 1:
-                                    boxtipopeso.Text = "G";
+                                    boxtipopeso.Text = "1 G";
                                     break;
                                 case 2:
-                                    boxtipopeso.Text = "Kg";
+                                    boxtipopeso.Text = "2 Kg";
                                     break;
                                 case 3:
-                                    boxtipopeso.Text = "Ml";
+                                    boxtipopeso.Text = "3 Ml";
                                     break;
                                 case 4:
-                                    boxtipopeso.Text = "Litro";
+                                    boxtipopeso.Text = "4 Litro";
                                     break;
                             }
 
@@ -132,35 +133,34 @@ namespace DeliciasDaRocaCAIXA
         {
 
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
+            var precototal = Convert.ToDouble(txtpreco.Text) * Convert.ToDouble(txtquantidade.Text);
             var sql = "";
             if (this.id == 0)
             {
 
 
-                Cadastrar cadastrar = new Cadastrar(txtidproduto.Text, txtnomeproduto.Text, txtquantidade.Text, txtpreco.Text, txtpeso.Text, boxtipoproduto.Text, boxtipopeso.Text);
-                if (txtidproduto.Text == string.Empty)
-                {
-                    MessageBox.Show(cadastrar.menssagem);
-                }
+
+                Cadastrar cadastrar = new Cadastrar(txtidproduto.Text, txtnomeproduto.Text, txtquantidade.Text, txtpreco.Text.Replace(',', '.'), txtpeso.Text, boxtipoproduto.Text, boxtipopeso.Text, Convert.ToString(precototal));
+
                 MessageBox.Show(cadastrar.menssagem);
                 toolStripStatusLabel1.Text = "Erro '-'";
                 statusStrip1.Refresh();
             }
             else
             {
-                sql = "UPDATE tb_produto SET IdProduto=@IdProduto, Nome=@Nome, Quantidade=@Quantidade, Peso=@Peso, [Tipo Peso]=@[Tipo Peso], Valor=@Valor, [Tipo Produto]=@[Tipo Produto] WHERE IdProduto=" + this.id;
+                sql = "UPDATE tb_produto SET IdProduto=@IdProduto, Nome=@Nome, Quantidade=@Quantidade, Peso=@Peso, TipoDePeso=@TipoDePeso, Valor=@Valor, TipoProduto=@TipoProduto, ValorTotal=@ValorTotal WHERE IdProduto=" + this.id;
 
-                MessageBox.Show("Alterado com sucesso!!");
+                
                 this.Hide();
 
                 using (SqlCommand cmd = new SqlCommand(sql, conexao.conectar()))
                 {
                     toolStripStatusLabel1.Text = "Salvando produto";
                     statusStrip1.Refresh();
-                    double ValorTotal = Convert.ToDouble(txtpreco) * Convert.ToDouble(txtquantidade);
+         
                     
 
                     cmd.Parameters.AddWithValue("@IdProduto", txtidproduto.Text);
@@ -168,11 +168,12 @@ namespace DeliciasDaRocaCAIXA
                     cmd.Parameters.AddWithValue("@Quantidade", txtquantidade.Text);
                     cmd.Parameters.AddWithValue("@Peso", txtpeso.Text);
                     cmd.Parameters.AddWithValue("@Valor", txtpreco.Text.Replace(',', '.'));
-                    cmd.Parameters.AddWithValue("@[Tipo Produto]", boxtipoproduto.Text.Substring(0, 1));
-                    cmd.Parameters.AddWithValue("@[Tipo Peso]", boxtipopeso.Text.Substring(0, 4));
-                    cmd.Parameters.AddWithValue("@[Valor Total]", ValorTotal);
+                    cmd.Parameters.AddWithValue("@TipoProduto", boxtipoproduto.Text.Substring(0, 1));
+                    cmd.Parameters.AddWithValue("@TipoDePeso", boxtipopeso.Text.Substring(0, 1));
+                    cmd.Parameters.AddWithValue("@ValorTotal", Convert.ToString(precototal).Replace(',', '.'));
                     cmd.ExecuteNonQuery();
                 }
+                    MessageBox.Show("Alterado com sucesso!!");
             }
 
         }

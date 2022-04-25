@@ -14,19 +14,20 @@ namespace DeliciasDaRocaCAIXA
         public string menssagem = "";
 
 
-        public Cadastrar(string idproduto, string nome, string quantidade, string preco, string peso, string tipoproduto, string tipopeso)
+        public Cadastrar(string idproduto, string nome, string quantidade, string preco, string peso, string tipoproduto, string tipopeso, string precototal)
         {
-            double precototal = Convert.ToDouble(preco) * Convert.ToDouble(quantidade);
-            cmd.CommandText = "INSERT INTO [tb_produto] (IdProduto, Nome, Quantidade, Peso, [Tipo Peso], Valor, [Tipo Produto], [Valor Total]) values (@IdProduto, @Nome, @Quantidade, @Peso, @[Tipo Peso], @Valor, @[Tipo Produto], @[Valor Total])";
+            
+            cmd.CommandText = "INSERT INTO [tb_produto] (IdProduto, Nome, Quantidade, Peso, TipoDePeso, Valor, TipoProduto, ValorTotal) values (@IdProduto, @Nome, @Quantidade, @Peso, @TipoDePeso, @Valor, @TipoProduto, @ValorTotal)";
             cmd.Parameters.AddWithValue("@IdProduto", idproduto);
             cmd.Parameters.AddWithValue("@Nome", nome);
             cmd.Parameters.AddWithValue("@Quantidade", quantidade);
             cmd.Parameters.AddWithValue("@Peso", peso);
-            cmd.Parameters.AddWithValue("@[Tipo Peso]", tipopeso.Substring(0, 1));
-            cmd.Parameters.AddWithValue("@[Tipo Produto]", tipoproduto.Substring(0, 4));
-            cmd.Parameters.AddWithValue("@Valor", Convert.ToDouble(preco.Replace(',', '.')));
-            cmd.Parameters.AddWithValue("@[Valor Total]", precototal);
-            
+            cmd.Parameters.AddWithValue("@TipoDePeso", tipopeso.Substring(0, 1));
+            cmd.Parameters.AddWithValue("@Valor", preco);
+            cmd.Parameters.AddWithValue("@TipoProduto", tipoproduto.Substring(0, 1));
+            cmd.Parameters.AddWithValue("@ValorTotal", precototal);
+
+
 
 
             try

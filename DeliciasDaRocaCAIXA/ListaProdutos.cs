@@ -79,7 +79,7 @@ namespace DeliciasDaRocaCAIXA
                 conexao.conectar();
 
 
-                var sqlQuery = cmd.CommandText = "SELECT * FROM tb_produto WHERE [Tipo Produto] like '%" + txtbuscarprodutos.Text + "%' Order by Nome ";
+                var sqlQuery = cmd.CommandText = "SELECT * FROM tb_produto WHERE Nome like '%" + txtbuscarprodutos.Text + "%' Order by Nome ";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, conexao.conectar()))
                 {
                     using (DataTable data = new DataTable())
